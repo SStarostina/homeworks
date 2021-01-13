@@ -7,9 +7,19 @@
 # то вначале нужно добавить сумму этих чисел к полученной ранее сумме и после этого завершить программу.
 
 
-row = input("Введите числа, разделяя их пробелами: ")
+def my_func():
+    res = 0
+    while True:
+        numbers = input('Введите числа через пробел или * для выхода: ').split()
+        for i in numbers:
+            try:
+                if i == '*':
+                    print(f'Сумма = {res}. Выход')
+                    return
+                else:
+                    res += int(i)
+            except ValueError:
+                print('Введите число или *')
+        print(f'Сумма {res}')
 
-
-result = my_func(1, 5, 0)
-
-print(f'Сумма чисел: {result} ')
+my_func()
